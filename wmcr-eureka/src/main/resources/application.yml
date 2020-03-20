@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: eureka-server
+  
+server:
+  port: 2001
+  
+eureka:
+  server:
+    enable-self-preservation: false   #开发时一般将自我保护模式关闭
+  instance:
+    hostname: eureka1
+  client:
+    register-with-eureka: false        #profile的配置会覆盖公用配置    注册
+    fetch-registry: false               #profile的配置会覆盖公用配置    拉 取
+

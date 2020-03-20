@@ -1,0 +1,10 @@
+eureka:
+  instance:
+    hostname: eureka1
+  client:
+    register-with-eureka: true    #profile的配置会覆盖公用配置    注册
+    fetch-registry: true          #profile的配置会覆盖公用配置    拉去
+    service-url:
+      defaultZone:  http://eureka2:2002/eureka          #互相连接互相拉取,需要填写对方注册的地址
+  
+
