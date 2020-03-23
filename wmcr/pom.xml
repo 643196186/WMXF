@@ -9,6 +9,8 @@
 	<modules>
 		<module>wmcr-manage</module>
 		<module>wmcr-eureka</module>
+		<module>wmcr-feign</module>
+		<module>wmcr-zuul</module>
 	</modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>

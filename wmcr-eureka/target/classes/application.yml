@@ -13,4 +13,7 @@ eureka:
   client:
     register-with-eureka: false        #profile的配置会覆盖公用配置    注册
     fetch-registry: false               #profile的配置会覆盖公用配置    拉 取
-
+    
+    #单台注册中心需要添加此配置,保证端口号匹配
+    service-url:
+      defaultZone: http://eureka1:2001/eureka

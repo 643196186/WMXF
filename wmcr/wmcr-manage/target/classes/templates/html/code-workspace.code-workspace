@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "/Users/mac/vscodeWORK"
+		},
+		{
+			"path": "/Users/mac/Downloads/static&templates"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "vscodeWORK"
+	}
+}
