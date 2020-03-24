@@ -1,4 +1,4 @@
-package cn.wmcr.controller;
+package cn.wmxf.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class PageController {
 	   @RequestMapping("doIndexUI")
 	   public String doIndexUI() {
-		   return "index_wmcr";//返回给DispatcherServlet
+		   return "index_wmxf";//返回给DispatcherServlet
 	   }//DispatcherServlet会调用视图解析器对象view进行解析,并将解析结果响应客户端.
 	   /**返回分页页面*/
 	   @RequestMapping("doPageUI")

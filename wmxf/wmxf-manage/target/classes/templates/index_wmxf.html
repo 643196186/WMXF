@@ -25,6 +25,8 @@
   <link rel="stylesheet" href="../AdminLTE-2.4/bower_components/layer/skin/default/layer.css">
   <link rel="stylesheet" href="../AdminLTE-2.4/bower_components/ztree/css/metroStyle/metroStyle.css"/>
   <link rel="stylesheet" href="../AdminLTE-2.4/bower_components/treegrid/jquery.treegrid.css"/>
+   <!-- DataTables -->
+   <link rel="stylesheet" href="../../bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- 警告：Respond.js 不支持 file:// 方式查看（即本地方式查看）-->
   <!--[if lt IE 9]>
@@ -224,9 +226,9 @@ BODY 标签选项：
             </span>
           </a>
           <ul class="treeview-menu" style="display: block;">
-            <li><a href="#"><i class="fa fa-plus-square"></i> 商铺入驻</a></li>
+            <li><a href="#" id="load-store-id"><i class="fa fa-plus-square"></i> 加盟商铺</a></li>
             <li class="treeview">
-              <a href="#"><i class="fa fa-facebook-square"></i> 品牌入驻
+              <a href="#"><i class="fa fa-facebook-square"></i> 加盟品牌
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
                 </span>
@@ -260,7 +262,7 @@ BODY 标签选项：
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (页眉) -->
-    <section class="content-header">
+    <!-- <section class="content-header">
       <h1>
         
         <small></small>
@@ -269,7 +271,7 @@ BODY 标签选项：
         <li><a href="#"><i class="fa fa-dashboard"></i> 层级</a></li>
         <li class="active">这里</li>
       </ol>
-    </section>
+    </section> -->
 
 
     <!-- Ajax 填充用标签 -->
@@ -281,7 +283,7 @@ BODY 标签选项：
 
      <!-- Main content -->
      <section id="mainContentId" class="content container-fluid">
-
+      
      
     </section>
     <!-- Main content -->
@@ -341,10 +343,42 @@ BODY 标签选项：
 <script src="../AdminLTE-2.4/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../AdminLTE-2.4/dist/js/demo.js"></script>
+<!-- TODO -->
+<!-- DataTables -->
+<script src="../AdminLTE-2.4/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="../AdminLTE-2.4/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<!-- SlimScroll -->
+<script src="../AdminLTE-2.4/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="../AdminLTE-2.4/bower_components/fastclick/lib/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="../AdminLTE-2.4/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../AdminLTE-2.4/dist/js/demo.js"></script>
+<script>
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      // 分页
+      'paging'      : true,
+      // 更改长度
+      'lengthChange': false,
+      // 搜索
+      'searching'   : false,
+      // 点单
+      'ordering'    : true,
+      // 信息
+      'info'        : true,
+      // 自动宽度
+      'autoWidth'   : false
+    })
+  })
+</script>
 <script type="text/javascript">
   //页面加载完成事件
   $(function(){
     doLoadUI("load-manage-id","manage/manage_list");
+    doLoadUI("load-store-id","store/store_list");
   })
   //基于某个对象click事件,执行资源加载操作
   function doLoadUI(id,url){
