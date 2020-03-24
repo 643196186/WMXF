@@ -1,0 +1,58 @@
+<div class="row">
+	<div class="col-xs-12">
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title">
+					<span class="fa fa-table"></span> 已有用户信息
+				</h3>
+				<div class="box-tools">
+					<div class="input-group input-group-sm" style="width: 350px;">
+						<input type="text" name="table_search" id="searchNameId"
+							class="form-control pull-right" placeholder="用户名">
+
+						<div class="input-group-btn">
+							<button type="button" class="btn btn-default btn-search">
+								<i class="fa fa-search"></i>
+								<span>
+									<button type="button" class="btn btn-success">封禁</button>
+									<button type="button" class="btn btn-danger">解禁</button>
+								</span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- /.box-header -->
+			<div class="box-body">
+				<table id="example1" class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th><input type="checkbox" id="checkAll"> 全选</th>
+							<th>用户编号</th>
+							<th>用户昵称</th>
+							<th>电话</th>
+							<th>地址</th>
+							<th>用户积分</th>
+							<th>注册时间</th>
+							<th>用户状态</th> 
+							<th>总订单数</th>
+							<th>当前订单</th>
+						
+						</tr>
+					</thead>
+					<tbody id="tbodyId">
+						<tr>
+							<td colspan="10"><span class="pull-right">数据正在加载中...</span></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div id="pageId" 
+			     class="box-footer clearfix"
+			     th:insert="html/page :: pageDiv">
+			</div>
+			<!-- /.box-body -->
+		</div>
+	</div>
+</div>

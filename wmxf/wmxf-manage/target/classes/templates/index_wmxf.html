@@ -248,7 +248,7 @@ BODY 标签选项：
                 </li>
               </ul>
             </li>
-            <li><a href="#"><i class="fa fa-user-plus"></i> 用户管理</a></li>
+            <li><a href="#" id="load-user-id"><i class="fa fa-user-plus"></i> 用户管理</a></li>
           	<li><a href="#"><i class="fa fa-window-restore"></i> 订单管理</a></li>
           	
           </ul>
@@ -353,6 +353,7 @@ BODY 标签选项：
   $(function(){
     doLoadUI("load-manage-id","manage/manage_list");
     doLoadUI("load-store-id","store/store_list");
+    doLoadUI("load-user-id","user/user_list");	
   })
   //基于某个对象click事件,执行资源加载操作
   function doLoadUI(id,url){
@@ -364,5 +365,6 @@ BODY 标签选项：
     })
   }
 </script>
+
 </body>
 </html>

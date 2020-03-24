@@ -2,6 +2,7 @@
 	<div class="col-xs-12">
 		<div class="box">
 			<div class="box-header">
+			
 				<h3 class="box-title">
 					<span class="fa fa-table"></span> 已有商铺信息
 				</h3>
@@ -13,22 +14,23 @@
 						<div class="input-group-btn">
 							<button type="button" class="btn btn-default btn-search">
 								<i class="fa fa-search"></i>
+								<span>
+									<button type="button" class="btn btn-success">添加</button>
+									<button type="button" class="btn btn-warning">修改</button>
+									<button type="button" class="btn btn-danger">删除</button>
+								</span>
 							</button>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="">
-				<button type="button" class="btn btn-success">添加</button>
-				<button type="button" class="btn btn-warning">修改</button>
-				<button type="button" class="btn btn-danger">删除</button>
-			</div>
+
 			<!-- /.box-header -->
 			<div class="box-body">
 				<table id="example1" class="table table-bordered table-striped">
 					<thead>
 						<tr>
-						<th><input type="checkbox" id="checkAll"> 全选</th>
+							<th><input type="checkbox" id="checkAll"> 全选</th>
 							<th>商铺名称</th>
 							<th>联系电话</th>
 							<th>营业时间</th>
@@ -51,11 +53,15 @@
 						</tr>
 					</thead>
 					<tbody id="tbodyId">
-					    <tr>
-					       <td colspan="8"><span class="pull-right">数据正在加载中...</span></td>
-					    </tr>
+						<tr>
+							<td colspan="9"><span class="pull-right">数据正在加载中...</span></td>
+						</tr>
 					</tbody>
 				</table>
+			</div>
+			<div id="pageId" 
+			     class="box-footer clearfix"
+			     th:insert="html/page :: pageDiv">
 			</div>
 			<!-- /.box-body -->
 		</div>

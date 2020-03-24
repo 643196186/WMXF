@@ -16,7 +16,7 @@ public class PageController {
 	   @RequestMapping("doPageUI")
 	   public String doPageUI() {
 		   //try{Thread.sleep(3000);}catch(Exception e) {}
-		   return "common/page";
+		   return "html/page";
 	   }
 	   /** 基于此方法返回日志列表页面*/
 //	   @RequestMapping("log/log_list")

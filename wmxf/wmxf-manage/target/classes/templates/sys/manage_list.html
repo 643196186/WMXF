@@ -28,7 +28,7 @@
           <div class="icon">
             <i class="ion ion-stats-bars"></i>
           </div>
-          <a href="#" class="small-box-footer">更多信息 <i class="fa fa-arrow-circle-right"></i></a>
+          <a href="#" id="load-store-more" class="small-box-footer">更多信息 <i class="fa fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <!-- ./col -->
@@ -64,3 +64,10 @@
       <!-- ./col -->
     </div>
 </section>
+<script type="text/javascript">
+	$(function(){
+		$(document).ready(function(){
+			doLoadUI("load-store-more","store/store_list");
+		});
+	})	
+</script>
