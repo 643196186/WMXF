@@ -140,4 +140,73 @@
 		doGetObjects();
 	}
   
+
+
+	 //页面加载完成,异步加载数据,并呈现在tbodyId对应的位置
+	 function doGetObjects(){//doGetObjects();
+       //代码服务于业务(希望在tbody中内容刷新时也要更新thread中的checkbox状态)
+       $("#checkAll").prop("checked",false);
+	   //debugger
+	   //1.定义请求参数
+	   //var params="pageCurrent=1";
+	   var pageCurrent=$("#pageId").data("pageCurrent");
+	   //当pageCurrent没有值时,默认undefined
+	   if(!pageCurrent)pageCurrent=1;
+	   var params={"pageCurrent":pageCurrent};//key为服务端控制层方法中的参数
+	   var uname=$("#searchNameId").val();//val()为jquery获取input元素值的一个函数
+	   if(uname)params.username=uname;
+	   console.log("params",params);//{"pageCurrent":1,"username":"admin"}
+	   //2.定义请求的url
+	   var url="log/doFindPageObjects";
+	   //3.发送ajax异步请求并处理响应结果
+	   $.getJSON(url,params,doHandleQueryResponseResult);
+	   //说明,getJSON方法会将服务端响应到客户端的json格式的字符串转换为json
+	   //格式的js对象
+   }
+   //处理日志查询时的响应结果
+   function doHandleQueryResponseResult(result){//对应服务端的JsonResult对象
+	   //console.log(result);
+	   //基于服务端响应结果的状态,对响应数据进行处理
+	   if(result.state==1){//正常信息
+		   //1.将当前页记录显示在tbodyid对应的位置
+		   doSetTableBodyRows(result.data.records);//Result.data为pageObject对象对应的信息
+           //2.对当前页的分页信息在pageId位置进行初始化设置.	
+           doSetPagination(result.data);//pageObject
+	   }else{//异常信息
+		   //处理服务端响应结果中的异常
+		   doSetQueryErrorMessage(result);
+	   }
+   }
+   //设置查询失败结果数据
+   function doSetQueryErrorMessage(result){
+	 //alert(result.message);//先简单处理
+	   $("#tbodyId").html("<tr><td colspan=7>"+result.message+"</td></tr>");
+	   //初始化总记录数
+	   $(".rowCount").html("总记录数(0)");
+	   //初始化总页数
+	   $(".pageCount").html("总页数(0)");
+	   //初始化当前页码值
+	   $(".pageCurrent").html("当前页(1)");
+   }
+   //将日志日志记录呈现在tbodyId位置
+   function doSetTableBodyRows(records){//[{},{},{}]
+	    //迭代records记录,并构建html元素对象(tr,td)
+	    let trs="";//ES6
+	    //for(let i=0;i<records.length;i++){}//ES5
+	    //for(let i in records){}//ES5
+	    //ES6中迭代数组的一种方式,如下:
+	    records.forEach((item)=>{//item表示records中的一行对象
+			   trs+="<tr>"+
+		          "<td><input type='checkbox' class='cBox' value='"+item.id+"'></td>"+
+		          "<td>"+item.username+"</tdo>"+
+		          "<td>"+item.operation+"</td>"+
+		          "<td>"+item.method+"</td>"+
+		          "<td>"+item.params+"</td>"+
+		          "<td>"+item.ip+"</td>"+
+		          "<td>"+item.time+"</td>"+
+		        "</tr>"
+		});
+	    //将Html元素追加到tbody中
+	    $("#tbodyId").html(trs);
+   }
  </script>

@@ -11,7 +11,7 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 @NoArgsConstructor
 @Accessors(chain=true)
-public class SysResult implements Serializable{
+public class JsonResult implements Serializable{
 	
 	private static final long serialVersionUID = 6839198920517572921L;
 	private Integer status;		//200表示成功  201表示失败
@@ -19,27 +19,27 @@ public class SysResult implements Serializable{
 	private Object data;		//服务器返回页面数据
 	
 	//1.重载方法,实现数据简化   只返回正确的状态码信息200.
-		public static SysResult success() {
+		public static JsonResult success() {
 			
-			return new SysResult(200,"调用成功!", null);
+			return new JsonResult(200,"调用成功!", null);
 		}
 		
 		//2.返回服务器数据 
-		public static SysResult success(Object data) {
+		public static JsonResult success(Object data) {
 			
-			return new SysResult(200,"调用成功!", data);
+			return new JsonResult(200,"调用成功!", data);
 		}
 		
 		//3.只返回服务器提示信息.
-		public static SysResult success(String msg,Object data) {
+		public static JsonResult success(String msg,Object data) {
 			
-			return new SysResult(200,msg, data);
+			return new JsonResult(200,msg, data);
 		}
 		
 		//4.定义失败的方法
-		public static SysResult fail() {
+		public static JsonResult fail() {
 			
-			return new SysResult(201,"业务调用失败",null);
+			return new JsonResult(201,"业务调用失败",null);
 		}
 	
 }
