@@ -3,13 +3,13 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.wmxf.mapper.StoreMapper">
 
-    <insert id="insertObject"
+    <!-- <insert id="insertObject"
             parameterType="com.cy.pj.sys.entity.SysLog">
            insert into sys_logs
            (username,operation,method,params,time,ip,createdTime)
            values
            (#{username},#{operation},#{method},#{params},#{time},#{ip},#{createdTime})
-    </insert>
+    </insert> -->
     
     <!-- 基于多个id删除日志记录 -->
     <!--  方法1 (可能存在可靠性,性能问题)
@@ -44,7 +44,7 @@
           </if>
      </delete>
      -->
-      <delete id="deleteObjects">
+      <!-- <delete id="deleteObjects">
        delete from sys_logs
        <choose>
          <when test="ids!=null and ids.length>0">
@@ -60,14 +60,14 @@
           where id=-1
          </otherwise>
        </choose>
-    </delete>
+    </delete> -->
      
 
     <!-- 通过sql元素定义sql共性代码,其它地方用到了使用include进行包含 -->
     <sql id="queryWhereId">
-          from shop_info
+         from shop_info
           <where>
-             <if test="username!=null and username!=''">
+             <if test="shopname!=null and shopname!=''">
                 shopname like concat("%",#{shopname},"%")
              </if>
           </where>   

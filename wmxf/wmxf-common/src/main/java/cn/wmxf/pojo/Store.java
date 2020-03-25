@@ -20,8 +20,7 @@ public class Store extends BasePojo{
 	  private String tag;
 	  private String shopname;//商品名称',
 	  private String contactMobile;//联系电话',
-	  private Integer beginTime;//营业开始时间',
-	  private Integer endTime;//营业结束时间',
+	  private String worktime;//营业时间
 	  private String storeImg;//餐厅相册',
 	  private String logoImg;//logo图片',
 	  private String address;//餐厅地址',
@@ -36,8 +35,9 @@ public class Store extends BasePojo{
 	  private Integer nearId;//地址标识',
 	  private Integer sales;//销量',
 	  private BigDecimal sendCost;//配送费',
-	  private Integer onlinePayment;//在线支付',
+	  private String onlinePayment;//在线支付',
 	  private Integer FreeDelivery;//免费配送',
 	  private Integer activityId;//参与的活动',
+	  
 	  
 }

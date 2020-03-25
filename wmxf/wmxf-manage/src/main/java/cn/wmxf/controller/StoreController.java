@@ -1,5 +1,6 @@
 package cn.wmxf.controller;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,7 +19,7 @@ public class StoreController {
 	
 	@RequestMapping("doFindPageObjects")
 	//@ResponseBody
-	public JsonResult doFindPageObjects(String shopname,
+	public JsonResult doFindPageObjects(@Param("username")String shopname,
 			Integer pageCurrent) {
 		//JsonResult r=new JsonResult();
 		//r.setData(sysLogService.findPageObjects(username, pageCurrent));
