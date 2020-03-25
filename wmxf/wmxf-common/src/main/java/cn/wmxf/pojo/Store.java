@@ -1,8 +1,9 @@
 package cn.wmxf.pojo;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import lombok.Data;
@@ -11,10 +12,10 @@ import lombok.experimental.Accessors;
 @TableName("shop_info")
 @Data
 @Accessors(chain=true)
-public class Store implements Serializable{
-	private static final long serialVersionUID = -8291268840149029522L;
+public class Store extends BasePojo{
 	
-	
+		@TableId(type=IdType.AUTO)
+		private Long id;
 	  private String tag;
 	  private String shopname;//商品名称',
 	  private String contactMobile;//联系电话',
