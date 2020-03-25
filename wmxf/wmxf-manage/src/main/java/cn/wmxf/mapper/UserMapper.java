@@ -21,7 +21,7 @@ public interface UserMapper {
 	 */
 	List<User> findPageObjects(
 			@Param("username") String username,
-			@Param("starIndex") Integer startIndex,
+			@Param("startIndex") Integer startIndex,
 			@Param("pageSize") Integer pageSize
 			);
 }

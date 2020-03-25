@@ -66,15 +66,15 @@
 		//});
 		//$("#pageId").load("doPageUI",doGetObjects);
 		doGetObjects();
-		//在页面的查询按钮上注册点击事件
-		$(".input-group-btn")
-		.on("click",".btn-search",doQueryObjects)
-		.on("click",".btn-delete",doDeleteObjects)
-		//thead中全选checkbox对象事件注册
-		//change事件一般应用于状态变化
-		$("#checkAll").change(doChangeTBodyCheckBoxState);
-		//tbody中checkbox对象事件注册
-		$("#tbodyId").on("change",".cBox",doChangeTHeadCheckBoxState);
+		// //在页面的查询按钮上注册点击事件
+		// $(".input-group-btn")
+		// .on("click",".btn-search",doQueryObjects)
+		// .on("click",".btn-delete",doDeleteObjects)
+		// //thead中全选checkbox对象事件注册
+		// //change事件一般应用于状态变化
+		// $("#checkAll").change(doChangeTBodyCheckBoxState);
+		// //tbody中checkbox对象事件注册
+		// $("#tbodyId").on("change",".cBox",doChangeTHeadCheckBoxState);
 	});
   //分页
   //修改thead中checkbox对象状态
@@ -146,7 +146,7 @@
 	 function doGetObjects(){//doGetObjects();
        //代码服务于业务(希望在tbody中内容刷新时也要更新thread中的checkbox状态)
        $("#checkAll").prop("checked",false);
-	   //debugger
+	   debugger
 	   //1.定义请求参数
 	   //var params="pageCurrent=1";
 	   var pageCurrent=$("#pageId").data("pageCurrent");
@@ -157,7 +157,7 @@
 	   if(uname)params.username=uname;
 	   console.log("params",params);//{"pageCurrent":1,"username":"admin"}
 	   //2.定义请求的url
-	   var url="log/doFindPageObjects";
+	   var url="user/doFindPageObjects";
 	   //3.发送ajax异步请求并处理响应结果
 	   $.getJSON(url,params,doHandleQueryResponseResult);
 	   //说明,getJSON方法会将服务端响应到客户端的json格式的字符串转换为json
@@ -165,9 +165,10 @@
    }
    //处理日志查询时的响应结果
    function doHandleQueryResponseResult(result){//对应服务端的JsonResult对象
+		debugger
 	   //console.log(result);
 	   //基于服务端响应结果的状态,对响应数据进行处理
-	   if(result.state==1){//正常信息
+	   if(result.status==200){//正常信息
 		   //1.将当前页记录显示在tbodyid对应的位置
 		   doSetTableBodyRows(result.data.records);//Result.data为pageObject对象对应的信息
            //2.对当前页的分页信息在pageId位置进行初始化设置.	
@@ -200,10 +201,13 @@
 		          "<td><input type='checkbox' class='cBox' value='"+item.id+"'></td>"+
 		          "<td>"+item.username+"</tdo>"+
 		          "<td>"+item.operation+"</td>"+
-		          "<td>"+item.method+"</td>"+
-		          "<td>"+item.params+"</td>"+
-		          "<td>"+item.ip+"</td>"+
-		          "<td>"+item.time+"</td>"+
+		          "<td>"+item.mobile+"</td>"+
+		          "<td>"+地址+"</td>"+
+		          "<td>"+item.walletp+"</td>"+
+		          "<td>"+item.created+"</td>"+
+		          "<td>"+item.status+"</td>"+
+		          "<td>"+总订单数+"</td>"+
+		          "<td>"+当前订单+"</td>"+
 		        "</tr>"
 		});
 	    //将Html元素追加到tbody中
