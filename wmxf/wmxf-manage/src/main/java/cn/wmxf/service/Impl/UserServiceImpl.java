@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserMapper userMapper;
 	
-	@Autowired
+	@Autowired(required=true)
 	private PaginationProperties paginationProperties;
 	
 	@Override
