@@ -56,3 +56,88 @@
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+	//JS中错误的排查策略:排除法,debugger,console.log()
+	$(function(){//页面加载完整之后执行
+		//日志列表页面加载完成以后,异步加载分页页面
+		//$("#pageId").load("doPageUI",function(){
+		  //异步加载日志列表数据
+		  //doGetObjects();
+		//});
+		//$("#pageId").load("doPageUI",doGetObjects);
+		doGetObjects();
+		//在页面的查询按钮上注册点击事件
+		$(".input-group-btn")
+		.on("click",".btn-search",doQueryObjects)
+		.on("click",".btn-delete",doDeleteObjects)
+		//thead中全选checkbox对象事件注册
+		//change事件一般应用于状态变化
+		$("#checkAll").change(doChangeTBodyCheckBoxState);
+		//tbody中checkbox对象事件注册
+		$("#tbodyId").on("change",".cBox",doChangeTHeadCheckBoxState);
+	});
+  //分页
+  //修改thead中checkbox对象状态
+	function doChangeTHeadCheckBoxState(){
+		//获取tbody中所有checkbox对象状态进行"逻辑与"以后的结果
+		var flag=true;//为什么定义变量时指定的默认值为true
+		$("#tbodyId input[type='checkbox']")
+		.each(function(){
+			flag=flag&&$(this).prop("checked");//逻辑与操作
+		})
+		//基于tbody中checkbox对象状态修改thead中checkbox对象状态
+		$("#checkAll").prop("checked",flag);
+	}
+  
+  //全选框
+  //修改tbody中checkbox对象的状态
+	function doChangeTBodyCheckBoxState(){
+		//1.获取thread中全选checkbox对象的选中状态
+		var flag=$(this).prop("checked");
+		//2.基于全选checkbox对象的状态值,修改tbody中checkbox对象状态
+		$("#tbodyId input[type='checkbox']").prop("checked",flag);
+	}
+  
+  //执行删除按钮事件
+	function doDeleteObjects(){
+		//1.获取选中记录id(可能是多个)并校验.
+		var idArray=doGetCheckedIds();
+		console.log("id",idArray);
+		if(idArray.length==0){
+			alert("请先选择");
+			return;
+		}
+		//2.给出删除提示(例如,您确定删除吗)
+		if(!confirm("确定删除吗"))return;
+		//3.发送ajax异步请求执行删除
+		var url="log/doDeleteObjects";
+		var params={"ids":idArray.toString()};//1,2,3
+		$.post(url,params,function(result){
+			if(result.state==1){
+				alert(result.message);
+				//doGetObjects();
+				doRefreshAfterDeleteOK();
+			}else{
+				alert(result.message);
+			}
+		})
+	}
+  //执行完删除操作以后刷新页面
+	function doRefreshAfterDeleteOK(){
+		var pageCount=$("#pageId").data("pageCount");
+		var pageCurrent=$("#pageId").data("pageCurrent");
+		var checked=$("#checkAll").prop("checked");
+		if(pageCurrent==pageCount&&checked&&pageCurrent>1){
+			pageCurrent--;
+			$("#pageId").data("pageCurrent",pageCurrent);
+		}
+	  doGetObjects();
+	}
+	function doQueryObjects(){
+		//1.初始化当前页码值
+		$("#pageId").data("pageCurrent",1);
+		//2.基于查询条件进行查询
+		doGetObjects();
+	}
+  
+ </script>
