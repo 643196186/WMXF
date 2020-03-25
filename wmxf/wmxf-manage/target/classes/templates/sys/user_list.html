@@ -181,7 +181,7 @@
    //设置查询失败结果数据
    function doSetQueryErrorMessage(result){
 	 //alert(result.message);//先简单处理
-	   $("#tbodyId").html("<tr><td colspan=7>"+result.message+"</td></tr>");
+	   $("#tbodyId").html("<tr><td colspan=7>"+result.msg+"</td></tr>");
 	   //初始化总记录数
 	   $(".rowCount").html("总记录数(0)");
 	   //初始化总页数
@@ -196,16 +196,16 @@
 	    //for(let i=0;i<records.length;i++){}//ES5
 	    //for(let i in records){}//ES5
 	    //ES6中迭代数组的一种方式,如下:
-	    records.forEach((item)=>{//item表示records中的一行对象
+	    records.forEach((user)=>{//item表示records中的一行对象
 			   trs+="<tr>"+
-		          "<td><input type='checkbox' class='cBox' value='"+item.id+"'></td>"+
-		          "<td>"+item.username+"</tdo>"+
-		          "<td>"+item.operation+"</td>"+
-		          "<td>"+item.mobile+"</td>"+
+		          "<td><input type='checkbox' class='cBox' value='"+user.id+"'></td>"+
+		          "<td>"+user.username+"</tdo>"+
+		          "<td>"+user.operation+"</td>"+
+		          "<td>"+user.mobile+"</td>"+
 		          "<td>"+地址+"</td>"+
-		          "<td>"+item.walletp+"</td>"+
-		          "<td>"+item.created+"</td>"+
-		          "<td>"+item.status+"</td>"+
+		          "<td>"+user.walletp+"</td>"+
+		          "<td>"+user.created+"</td>"+
+		          "<td>"+user.status+"</td>"+
 		          "<td>"+总订单数+"</td>"+
 		          "<td>"+当前订单+"</td>"+
 		        "</tr>"
