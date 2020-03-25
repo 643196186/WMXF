@@ -14,6 +14,7 @@ import lombok.experimental.Accessors;
 @Accessors(chain=true)
 public class Store extends BasePojo{
 	
+	private static final long serialVersionUID = 6308150320489285890L;
 		@TableId(type=IdType.AUTO)
 		private Long id;
 	  private String tag;
@@ -38,5 +39,5 @@ public class Store extends BasePojo{
 	  private Integer onlinePayment;//在线支付',
 	  private Integer FreeDelivery;//免费配送',
 	  private Integer activityId;//参与的活动',
-
+	  
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.cy.pj.sys.dao.SysLogDao">
+<mapper namespace="cn.wmxf.mapper.StoreMapper">
 
     <insert id="insertObject"
             parameterType="com.cy.pj.sys.entity.SysLog">
@@ -65,10 +65,10 @@
 
     <!-- 通过sql元素定义sql共性代码,其它地方用到了使用include进行包含 -->
     <sql id="queryWhereId">
-          from sys_logs
+          from shop_info
           <where>
              <if test="username!=null and username!=''">
-                username like concat("%",#{username},"%")
+                shopname like concat("%",#{shopname},"%")
              </if>
           </where>   
     </sql>
@@ -79,10 +79,10 @@
     </select>
     <!-- 基于查询条件查询当前页记录 -->
     <select id="findPageObjects"
-            resultType="com.cy.pj.sys.entity.SysLog">
+            resultType="cn.wmxf.pojo.Store">
            select *
            <include refid="queryWhereId"/>    
-           order by createdTime desc
+           order by created desc
            limit #{startIndex},#{pageSize} 
     </select>
     
