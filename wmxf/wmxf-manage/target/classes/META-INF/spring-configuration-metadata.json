@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {
+      "name": "page.config",
+      "type": "com.wmxf.config.PaginationProperties",
+      "sourceType": "com.wmxf.config.PaginationProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "page.config.page-size",
+      "type": "java.lang.Integer",
+      "sourceType": "com.wmxf.config.PaginationProperties"
+    }
+  ],
+  "hints": []
+}

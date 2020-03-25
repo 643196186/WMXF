@@ -4,27 +4,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import cn.wmxf.pojo.Store;
-import cn.wmxf.service.StoreService;
+import cn.wmxf.pojo.User;
+import cn.wmxf.service.UserService;
 import cn.wmxf.vo.JsonResult;
 import cn.wmxf.vo.PageObject;
 
 @RestController
-@RequestMapping("/store/")
-public class StoreController {
-	
+@RequestMapping("/user")
+public class UserController {
+
+
 	@Autowired
-	private StoreService storeService;
+	private UserService userService;
 	
-	@RequestMapping("doFindPageObjects")
+	@RequestMapping("/doFindPageObjects")
 	//@ResponseBody
-	public JsonResult doFindPageObjects(String shopname,
+	public JsonResult doFindPageObjects(String username,
 			Integer pageCurrent) {
 		//JsonResult r=new JsonResult();
 		//r.setData(sysLogService.findPageObjects(username, pageCurrent));
-		PageObject<Store> pageObject=
-		storeService.findPageObjects(shopname, pageCurrent);
-		
+		PageObject<User> pageObject=
+		userService.findPageObjects(username, pageCurrent);
 		return JsonResult.success(pageObject);//result.data.records
 	}
 }

@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.wmxf.mapper.StoreMapper">
+<mapper namespace="cn.wmxf.mapper.UserMapper">
 
-    <insert id="insertObject"
-            parameterType="com.cy.pj.sys.entity.SysLog">
-           insert into sys_logs
-           (username,operation,method,params,time,ip,createdTime)
-           values
-           (#{username},#{operation},#{method},#{params},#{time},#{ip},#{createdTime})
-    </insert>
     
     <!-- 基于多个id删除日志记录 -->
     <!--  方法1 (可能存在可靠性,性能问题)
@@ -65,23 +58,23 @@
 
     <!-- 通过sql元素定义sql共性代码,其它地方用到了使用include进行包含 -->
     <sql id="queryWhereId">
-          from shop_info
+          from user
           <where>
              <if test="username!=null and username!=''">
-                shopname like concat("%",#{shopname},"%")
+                username like concat("%",#{username},"%")
              </if>
           </where>   
     </sql>
     <!-- 基于用户名,动态拼接sql实现数据查询 -->
     <select id="getRowCount" resultType="int">
           select count(*)
-          <include refid="queryWhereId"/>    
+          <include refid="queryWhereId"/>    <!-- 引入sql片段 -->
     </select>
     <!-- 基于查询条件查询当前页记录 -->
     <select id="findPageObjects"
-            resultType="cn.wmxf.pojo.Store">
+            resultType="cn.wmxf.pojo.User">
            select *
-           <include refid="queryWhereId"/>    
+           <include refid="queryWhereId"/>    <!-- 引入sql片段 -->
            order by created desc
            limit #{startIndex},#{pageSize} 
     </select>

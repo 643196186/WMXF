@@ -6,7 +6,7 @@ spring:
     name: manage
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/jtdb?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true
+    url: jdbc:mysql://127.0.0.1:3306/WMCR?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true
     username: root
     password: root
     
@@ -31,4 +31,8 @@ eureka:
   client:
     service-url:
       defaultZone: http://eureka1:2001/eureka #http://eureka2:2002/eureka
+      
+#page
+page.config: 
+    pageSize: 5 
  
