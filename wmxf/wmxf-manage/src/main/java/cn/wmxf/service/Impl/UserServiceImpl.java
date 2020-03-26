@@ -5,11 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import cn.wmxf.config.PaginationProperties;
 import cn.wmxf.mapper.UserMapper;
 import cn.wmxf.pojo.User;
 import cn.wmxf.service.UserService;
 import cn.wmxf.util.Assert;
+import cn.wmxf.util.PaginationProperties;
 import cn.wmxf.vo.PageObject;
 
 @Service
