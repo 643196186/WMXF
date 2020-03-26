@@ -1,4 +1,4 @@
-package com.wmxf.exception;
+package cn.wmxf.exception;
 public class ServiceException extends RuntimeException {
 	private static final long serialVersionUID = -5598865415547474216L;
 	public ServiceException() {

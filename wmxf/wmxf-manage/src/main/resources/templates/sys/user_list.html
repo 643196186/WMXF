@@ -29,7 +29,7 @@
 					<thead>
 						<tr>
 							<th><input type="checkbox" id="checkAll"> 全选</th>
-							<th>用户编号</th>
+
 							<th>用户昵称</th>
 							<th>电话</th>
 							<th>地址</th>
@@ -196,14 +196,13 @@
 				trs+="<tr>"+
 		          "<td><input type='checkbox' class='cBox' value='"+user.id+"'></td>"+
 		          "<td>"+user.username+"</tdo>"+
-		          "<td>"+user.operation+"</td>"+
 		          "<td>"+user.mobile+"</td>"+
-		          "<td>"+地址+"</td>"+
+		          "<td>"+"地址"+"</td>"+
 		          "<td>"+user.walletp+"</td>"+
 		          "<td>"+user.created+"</td>"+
 		          "<td>"+user.status+"</td>"+
-		          "<td>"+总订单数+"</td>"+
-		          "<td>"+当前订单+"</td>"+
+		          "<td>"+"总订单数"+"</td>"+
+		          "<td>"+"当前订单"+"</td>"+
 		        "</tr>"
 		});
 	    //将Html元素追加到tbody中

@@ -1,6 +1,6 @@
-package com.wmxf.util;
+package cn.wmxf.util;
 
-import com.wmxf.exception.ServiceException;
+import cn.wmxf.exception.ServiceException;
 
 public class Assert {
 	public static void isNull(Object obj,String message) {
