@@ -73,10 +73,9 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<scope>runtime</scope>
-			<version>5.1.32</version>
-			<!--低版本的mysql数据库代理服务器 -->
+			<version>5.1.25</version>
 		</dependency>
+
 
 		<!--springBoot数据库连接 -->
 		<dependency>
@@ -89,26 +88,26 @@
 			<artifactId>mybatis-plus-boot-starter</artifactId>
 			<version>3.2.0</version>
 		</dependency>
-				<!--mybatis-plus 持久层-->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.0.5</version>
-        </dependency>
+		<!--mybatis-plus 持久层 -->
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus-boot-starter</artifactId>
+			<version>3.0.5</version>
+		</dependency>
 
-        <!--lombok用来简化实体类：需要安装lombok插件-->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-       
-        <!-- 模板引擎 -->
-        <dependency>
-            <groupId>org.apache.velocity</groupId>
-            <artifactId>velocity-engine-core</artifactId>
-            <version>2.0</version>
-        </dependency>
-		
+		<!--lombok用来简化实体类：需要安装lombok插件 -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+
+		<!-- 模板引擎 -->
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity-engine-core</artifactId>
+			<version>2.0</version>
+		</dependency>
+
 		<!--引入aop支持 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -123,7 +122,10 @@
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-redis</artifactId>
 		</dependency>
-	
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
 
 	</dependencies>
 	<dependencyManagement>

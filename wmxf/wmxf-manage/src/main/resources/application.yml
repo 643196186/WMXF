@@ -1,26 +1,22 @@
 spring:
-  thymeleaf:
-    prefix: classpath:/templates/
-    suffix: .html
   application:
     name: manage
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/WMCR?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true
+    url: jdbc:mysql:///WMCR?serverTimezone=GMT%2B8&characterEncoding=UTF8
     username: root
     password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  thymeleaf:
+    prefix: classpath:/templates/
+    cache: false
     
-#mybatis-plush配置
 mybatis-plus:
-  type-aliases-package: com.wmcr.pojo
+  type-aliases-package: cn.wmxf.pojo
   mapper-locations: classpath:/mapper/*/*.xml
   configuration:
     map-underscore-to-camel-case: true
-
-logging:
-  level: 
-    com.jt.mapper: debug
-  
+    
+    
 server:
   port: 8080
   servlet:
@@ -30,8 +26,6 @@ eureka:
   client:
     service-url:
       defaultZone: http://eureka1:2001/eureka #http://eureka2:2002/eureka
-      
 #page
 page.config: 
-    pageSize: 5 
- 
+    pageSize: 2 
